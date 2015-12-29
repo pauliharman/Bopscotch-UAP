@@ -51,11 +51,12 @@ namespace Bopscotch
             bool isFullScreen = view.TryEnterFullScreenMode();
             Rect screenSize = view.VisibleBounds;
 
+            int screenWidth = (int)(screenSize.Width * di.RawPixelsPerViewPixel);
             int width = (int)((screenSize.Height * di.RawPixelsPerViewPixel * 16.0) / 9.0);
             int height = (int)(screenSize.Height * di.RawPixelsPerViewPixel);
 
             //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1440,900);
-            SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, width, height);
+            SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle((screenWidth-width)/2, 0, width, height);
             //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1280, 768);
             //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1200, 675);
 

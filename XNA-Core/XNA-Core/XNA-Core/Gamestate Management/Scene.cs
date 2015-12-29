@@ -63,7 +63,7 @@ namespace Leda.Core.Gamestate_Management
             : base(GameBase.Instance)
         {
             DeactivationHandler = null;
-            DoNotUseBackBuffer = true;
+            DoNotUseBackBuffer = false;
 
             _spriteBatch = null;
             _renderController = new RenderController();
