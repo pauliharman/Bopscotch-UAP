@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<leveldata>
+  <background texture="background-tutorial" />
+  <terrain>
+    <blocks>
+      <block x="0" y="560" texture="block-1" />
+      <block x="80" y="560" texture="block-1" />
+      <block x="160" y="560" texture="block-1" />
+      <block x="240" y="560" texture="block-1" />
+      <block x="320" y="560" texture="block-1" />
+      <block x="400" y="560" texture="block-1" />
+      <block x="480" y="560" texture="block-1" />
+      <block x="560" y="560" texture="block-1" />
+      <ice-block x="640" y="560" texture="block-ice" />
+      <ice-block x="720" y="560" texture="block-ice" />
+      <ice-block x="800" y="560" texture="block-ice" />
+      <ice-block x="880" y="560" texture="block-ice" />
+      <block x="960" y="560" texture="block-1" />
+      <block x="1040" y="560" texture="block-1" />
+      <block x="1120" y="560" texture="block-1" />
+      <block x="1200" y="560" texture="block-1" />
+      <block x="1280" y="560" texture="block-1" />
+      <block x="1360" y="560" texture="block-1" />
+      <block x="1440" y="560" texture="block-1" />
+      <block x="1520" y="560" texture="block-1" />
+      <ice-block x="1600" y="560" texture="block-ice" />
+      <ice-block x="1680" y="560" texture="block-ice" />
+      <ice-block x="1760" y="560" texture="block-ice" />
+      <ice-block x="1840" y="560" texture="block-ice" />
+      <block x="2000" y="560" texture="block-1" />
+      <block x="1920" y="560" texture="block-1" />
+      <block x="2080" y="560" texture="block-1" />
+      <block x="2160" y="560" texture="block-1" />
+      <block x="2240" y="560" texture="block-1" />
+      <block x="2320" y="560" texture="block-1" />
+      <block x="2400" y="560" texture="block-1" />
+      <block x="2480" y="560" texture="block-1" />
+    </blocks>
+    <signposts>
+      <one-way-signpost x="160" y="400" texture="sign-one-way" zone-top="-264" mirror="false" />
+      <one-way-signpost x="2320" y="400" texture="sign-one-way" zone-top="-246" mirror="true" />
+    </signposts>
+  </terrain>
+  <player x="1200" y="480" startfacingleft="false" />
+</leveldata>
