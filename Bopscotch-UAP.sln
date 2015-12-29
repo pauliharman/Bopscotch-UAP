@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bopscotch-UAP", "Bopscotch-UAP.csproj", "{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug PC|ARM = Debug PC|ARM
+		Debug PC|x64 = Debug PC|x64
+		Debug PC|x86 = Debug PC|x86
+		Debug Phone|ARM = Debug Phone|ARM
+		Debug Phone|x64 = Debug Phone|x64
+		Debug Phone|x86 = Debug Phone|x86
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|ARM.ActiveCfg = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|ARM.Build.0 = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|ARM.Deploy.0 = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x64.ActiveCfg = Debug|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x64.Build.0 = Debug|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x64.Deploy.0 = Debug|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x86.ActiveCfg = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x86.Build.0 = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug PC|x86.Deploy.0 = Debug|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|ARM.ActiveCfg = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|ARM.Build.0 = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|ARM.Deploy.0 = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x64.ActiveCfg = Debug Phone|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x64.Build.0 = Debug Phone|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x64.Deploy.0 = Debug Phone|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x86.ActiveCfg = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x86.Build.0 = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Debug Phone|x86.Deploy.0 = Debug Phone|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|ARM.ActiveCfg = Release|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|ARM.Build.0 = Release|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|ARM.Deploy.0 = Release|ARM
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x64.ActiveCfg = Release|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x64.Build.0 = Release|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x64.Deploy.0 = Release|x64
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x86.ActiveCfg = Release|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x86.Build.0 = Release|x86
+		{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{2C0B96E6-EF51-4BD6-84DC-8FBC7168C512}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Bopscotch_UAP</RootNamespace>
+    <AssemblyName>Bopscotch-UAP</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.10240.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10240.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <EnableDotNetNativeCompatibleProfile>true</EnableDotNetNativeCompatibleProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Bopscotch-UAP_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <MonoGamePlatform>WindowsStoreApp</MonoGamePlatform>
+    <MonoGameContentBuilderExe>
+    </MonoGameContentBuilderExe>
+    <MonoGameInstallDirectory Condition=" '$(OS)' != 'Unix' ">$(MSBuildProgramFiles32)</MonoGameInstallDirectory>
+    <MonoGameInstallDirectory Condition=" '$(OS)' == 'Unix' ">$(MSBuildExtensionsPath)</MonoGameInstallDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUAP\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\WindowsUAP\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUAP\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\WindowsUAP\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\WindowsUAP\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\WindowsUAP\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UAP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\WindowsUAP\MonoGame.Framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Communication\ICommunicator.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Communication\SubSceneCommunicator.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\AreaDataContainer.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Avatar\AvatarComponent.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Avatar\AvatarComponentChildTintOverride.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Avatar\AvatarComponentManager.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Avatar\AvatarComponentMapping.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Avatar\AvatarComponentSet.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\GlobalData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\LevelData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\PCSettings.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\Profile.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\RaceLevelData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\RacePlayerCommunicationData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\RacePlayerData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\SmashBlockItemData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\SurvivalLevelData.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Data\UniversalSettings.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Definitions.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\BackgroundSnow.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\FullScreenColourOverlay.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\GlowBurst.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Particles\AdditiveLayerParticleEffectManager.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Particles\OpaqueLayerParticleEffectManager.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Particles\ParticleEffectManager.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Popups\AutoDismissingPopup.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Popups\PopupBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\Popups\PopupRequiringDismissal.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\SmashBlockItems\SmashBlockGlowingItem.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\SmashBlockItems\SmashBlockItem.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\SmashBlockItems\SmashBlockItemFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Effects\SmashBlockItems\SmashBlockItemMotionEngine.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Game1.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Controllers\PlayerTrackingCameraController.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Coordination\RacePowerUpCoordinator.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Coordination\RaceProgressCoordinator.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\LevelFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Behaviours\ICanHaveGlowEffect.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\Base\Character.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\CharacterFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\Player\Player.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\Player\PlayerMotionEngine.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\InGameButtonBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\PlayerEventPopup.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\CountdownPopup.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\PowerUpButton.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\PowerUpHelper.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\PowerUpTimer.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\RaceDataDisplay.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Race\RaceInfoPopup.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Speedometer.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\StatusDisplay.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\StatusText.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Survival\PauseButton.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Survival\SurvivalDataDisplay.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Survival\TutorialRunner.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Background.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blackout.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\Block.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\BlockFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\IceBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\ObstructionBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\RaceModePowerUpSmashBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\SmashBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\SpikeBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\SpringBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\SurvivalModeItemSmashBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Collectables\Collectable.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Collectables\CollectableExitMotionEngine.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Collectables\CollectableFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Collectables\GoldenTicket.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Collectables\ScoringCandy.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Flags\CheckpointFlag.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Flags\Flag.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Flags\FlagFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Flags\GoalFlag.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\OneWaySignpost.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\RouteMarker.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\SignpostBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\SignpostFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\SpeedLimitSignpost.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\ControllerPool.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\GamePadInputProcessor.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\InGameButtonArea.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\InputProcessorBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\KeyboardInputProcessor.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Button.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\ButtonDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\ComponentSetDisplayAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\AvatarContent.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\ContentBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\ImageContent.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\ImageContentWithGlow.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\SurvivalAreaCompleteContentFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Content\TextContent.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\BackDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Button.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\ButtonDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\AreaSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\AvatarSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\CarouselAreaImage.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\CarouselAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\CarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\CarouselFlatImage.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\Carousel\ICarouselDialogItem.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\ControllerUnpluggedDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\DialogAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\EditCharacter\ComponentSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\EditCharacter\ComponentSetSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceFinishScene\ResultsAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceFinishScene\ResultsDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceFinishScene\ResultsPopup.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceFinishScene\ResultsSkeleton.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceGameplayScene\QuitRaceDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceJoinScene\CourseSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceJoinScene\PlayerOneAvatarCarousel.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceJoinScene\PlayerTwoAvatarCarousel.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceJoinScene\PlayerTwoStartDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\RaceJoinScene\RaceCharacterSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\SurvivalGameplayScene\PauseDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\CarouselAreaImage.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\CharacterSelectionCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\MainMenuDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\NewContentUnlockedDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\OptionsDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\ResetAreasCompleteDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\ResetAreasConfirmDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\StartMenuDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Dialogs\TitleScene\SurvivalStartCarouselDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Objects\ComponentSetDisplayAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Objects\EditCharacter\CustomisationDisplayAvatar.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Objects\EditCharacter\CustomisationDisplayBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Objects\EditCharacter\CustomisationDisplayBlockMotionEngine.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Translator.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\BaseClasses\ContentSceneWithBackDialog.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\BaseClasses\FlatContentScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\BaseClasses\MenuDialogScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\BaseClasses\StaticSceneBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Race\RaceDialogContainerSubScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Race\RaceFinishScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Race\RaceGameplayScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Race\RaceStartScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Race\RaceSubScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\SinglePlayerSubScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\SubsceneBase.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Survival\SurvivalAreaCompleteScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Survival\SurvivalGameplayScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\Gameplay\Survival\SurvivalSubScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\NonGame\AvatarCustomisationScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\NonGame\CreditsScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\NonGame\DisplayCalibrationScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\NonGame\LoadingScene.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Scenes\NonGame\TitleScene.cs" />
+    <Compile Include="GamePage.xaml.cs">
+      <DependentUpon>GamePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\AnimationEngineBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\ColourAnimationEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\IAnimationEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\SkeletalAnimationEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\SpriteSheetAnimationEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Engines\TransformationAnimationEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\AnimationSequence.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\ColourKeyframe.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\IKeyframe.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\KeyframeBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\SkeletalKeyframe.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\SpriteSheetKeyframe.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Sequencing\TransformationKeyframe.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Skeletons\IBone.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Skeletons\ISkeleton.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Animation\Skeletons\StorableBone.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\AnimationDataManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\CollisionDataManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\EmitterFactoryManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\FileManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\MusicManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\SkeletonDataManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\SoundEffectManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Asset Management\TextureManager.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Effects\Particles\Emitter.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Effects\Particles\EmitterFactory.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Effects\Particles\Particle.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Effects\Particles\ParticleController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Base\GameBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Base Classes\DisposableSimpleDrawableObject.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Base Classes\DisposableSkeleton.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Base Classes\StorableSimpleDrawableObject.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Base Classes\StorableSkeleton.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Animation\IAnimated.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Animation\IColourAnimatable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Animation\ISpriteSheetAnimatable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Animation\ITransformationAnimatable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Camera\ICameraLinked.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Camera\ICameraRelative.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Camera\ICameraRelativeWithOffCameraDispose.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\ColliderType.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\IBoxCollidable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\ICircularCollidable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\ICollidable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\ICompoundPolygonCollidable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Collisions\IPolygonCollidable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Effects\IHasParticleEffects.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\IGameObject.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\IHasLifeCycle.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\ILinkedToOtherObjects.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\IMobile.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\IPausable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\ITemporary.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\IWorldObject.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Rendering\ISimpleRenderable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Rendering\ITextureManaged.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Serialization\IObjectCreator.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Serialization\ISerializable.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Behaviours\Serialization\ISerializableWithPostDeserialize.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\AnimationController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Camera\CameraControllerBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Camera\MobileCameraController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Camera\MobileObjectTrackingCameraController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Collisions\CollisionControllerBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Collisions\OneToManyCollisionController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\MotionController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\PauseController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Rendering\RenderController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Controllers\Rendering\RenderLayer.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Tile Map\ITile.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Game Objects\Tile Map\TileMap.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Gamestate Management\AssetLoaderScene.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Gamestate Management\Scene.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Gamestate Management\SceneParameters.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Gamestate Management\StorableScene.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Input\TouchProcesser.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\BounceEntryMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\BounceExitMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\DecelerateEntryMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\EasingMotionEngineBase.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\LinearMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\Engines\TrackingMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Motion\IMotionEngine.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Renderable\Box.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Renderable\RenderTools.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Serialization\Serializer.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Shapes\Circle.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Shapes\Polygon.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Timing\GlobalTimerController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Timing\ITimerController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Timing\Timer.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Timing\TimerController.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Utility\Definitions.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Utility\Random.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Utility\Range.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Utility\TextWriter.cs" />
+    <Compile Include="XNA-Core\XNA-Core\XNA-Core\Utility\Utility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Bopscotch-UAP_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Files\AnimationSequences.xml" />
+    <Content Include="Content\Files\Avatars\Components.xml" />
+    <Content Include="Content\Files\Avatars\Costumes.xml" />
+    <Content Include="Content\Files\Avatars\Skeletons.xml" />
+    <Content Include="Content\Files\Avatars\Skins.xml" />
+    <Content Include="Content\Files\Content\en-GB\credits.xml" />
+    <Content Include="Content\Files\Content\en-GB\display.xml" />
+    <Content Include="Content\Files\EmitterBehaviours.xml" />
+    <Content Include="Content\Files\Levels\AdditionalAreas.xml" />
+    <Content Include="Content\Files\Levels\DefaultAreas.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\RaceStage.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\1.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\2.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\3.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\4.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\5.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\6.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\7.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\8.xml" />
+    <Content Include="Content\Files\Levels\Ghostberg\Survival\9.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\RaceStage.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\1.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\10.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\11.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\12.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\13.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\14.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\15.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\16.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\17.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\18.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\19.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\2.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\20.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\21.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\22.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\23.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\24.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\25.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\26.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\27.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\28.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\29.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\3.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\4.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\5.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\6.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\7.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\8.xml" />
+    <Content Include="Content\Files\Levels\Hilltops\Survival\9.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\RaceStage.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\1.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\10.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\11.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\12.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\13.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\14.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\15.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\16.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\17.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\18.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\19.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\2.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\20.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\21.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\22.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\23.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\24.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\25.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\26.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\27.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\28.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\29.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\3.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\4.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\5.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\6.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\7.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\8.xml" />
+    <Content Include="Content\Files\Levels\Metropolis\Survival\9.xml" />
+    <Content Include="Content\Files\Levels\Snowville\RaceStage.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\1.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\2.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\3.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\4.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\5.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\6.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\7.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\8.xml" />
+    <Content Include="Content\Files\Levels\Snowville\Survival\9.xml" />
+    <Content Include="Content\Files\Levels\Tutorial\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\RaceStage.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\0.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\1.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\10.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\11.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\12.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\13.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\14.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\15.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\16.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\17.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\18.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\19.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\2.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\20.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\21.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\22.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\23.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\24.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\25.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\26.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\27.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\28.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\29.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\3.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\4.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\5.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\6.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\7.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\8.xml" />
+    <Content Include="Content\Files\Levels\Waterfall\Survival\9.xml" />
+    <Content Include="Content\Files\Loadables.xml" />
+    <Content Include="Content\Files\Translations\en-GB.xml" />
+    <Content Include="Content\Files\Tutorial\en-GB.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="GamePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\Player\Old\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Phone|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug Phone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Phone|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug Phone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Phone|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug Phone\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UAP;CODE_ANALYSIS</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
