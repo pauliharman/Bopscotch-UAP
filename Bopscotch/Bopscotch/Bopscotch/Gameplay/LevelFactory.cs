@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Game_Objects.Tile_Map;
 using Leda.Core.Game_Objects.Controllers;
+using Leda.Core.Game_Objects.Controllers.Collisions;
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
 using Leda.Core.Timing;
@@ -30,15 +31,20 @@ namespace Bopscotch.Gameplay
         private TimerController.TickCallbackRegistrationHandler _registerTimerTick;
 
         public Player Player { get; private set; }
-        public TileMap Map { get; private set; }
+        public BlockMap Map { get; private set; }
         public AnimationController AnimationController { set { BlockFactory.AnimationController = value; } }
         public SmashBlock.SmashCallbackMethod SmashBlockCallback { set { BlockFactory.SmashBlockCallback = value; } }
-        public AdditiveLayerParticleEffectManager.CloudBurstEffectInitiator SmashBlockRegenrationCallback { set { BlockFactory.SmashBlockRegerationCallback = value; } }
+        public AdditiveLayerParticleEffectManager.CloudBurstEffectInitiator SmashBlockRegenerationCallback { set { BlockFactory.SmashBlockRegerationCallback = value; } }
+        public AdditiveLayerParticleEffectManager.FireballEffectInitiator BombBlockDetonationCallback { set { BlockFactory.BombBlockDetonationCallback = value; } }
 
         public Point BackgroundDimensions { private get; set; }
 
         public int RaceLapCount { get; private set; }
         public string RaceAreaName { private get; set; }
+
+//        public int TotalCandiesOnLevel { get { return CollectableFactory.CandyCount + BlockFactory.SmashBlockCandyCount; } }
+        public float RankACandyFraction { get; private set; }
+        public float RankBCandyFraction { get; private set; }
 
         public LevelFactory(Scene.ObjectRegistrationHandler registerGameObject, 
             TimerController.TickCallbackRegistrationHandler registerTimerTick)
@@ -60,24 +66,29 @@ namespace Bopscotch.Gameplay
         public void LoadAndInitializeLevel()
         {
             XElement levelData = LoadLevelData();
-            RaceLapCount = (Data.Profile.PlayingRaceMode ? GetLapsForRace(levelData) : 0);
 
+            if (Data.Profile.PlayingRaceMode)
+            {
+                RaceLapCount = GetLapsForRace(levelData);
+            }
+            else
+            {
+                XElement rankFractionElement = levelData.Element(Rank_Fraction_Data_Element);
+                RankACandyFraction = GetCandyFractionForRanking(rankFractionElement, "a", Rank_A_Candy_Fraction);
+                RankBCandyFraction = GetCandyFractionForRanking(rankFractionElement, "b", Rank_B_Candy_Fraction);
+            }
+            
             WireUpCallElementFactoryCallbacks();
 
-            Map = BlockFactory.LoadBlocks(levelData.Element(Terrain_Data_Element).Element(BlockFactory.Data_Group_Node_Name));
-            Map.ViewportDimensionsInTiles = new Point(
-                (BackgroundDimensions.X / Definitions.Grid_Cell_Pixel_Size) + 1, BackgroundDimensions.Y / Definitions.Grid_Cell_Pixel_Size);
+            Map = BlockFactory.CreateLevelBlockMap(levelData.Element(Terrain_Data_Element).Element(BlockFactory.Data_Group_Node_Name));
 
             CollectableFactory.LoadCollectables(levelData.Element(Terrain_Data_Element).Element(CollectableFactory.Data_Group_Node_Name));
             SignpostFactory.LoadSignposts(levelData.Element(Terrain_Data_Element).Element(SignpostFactory.Data_Group_Node_Name));
             FlagFactory.LoadFlags(levelData.Element(Terrain_Data_Element).Element(FlagFactory.Data_Group_Node_Name));
 
             Player = CharacterFactory.LoadPlayer(levelData.Element(CharacterFactory.Player_Data_Node_Name));
-            Player.Map = Map;
 
-            CreateBackground(levelData.Element(Background_Data_Element));
-
-            _registerGameObject(Map);
+            FinalizeLevelSetup(levelData);
         }
 
         private XElement LoadLevelData()
@@ -122,27 +133,51 @@ namespace Bopscotch.Gameplay
             return (int)levelData.Element(Race_Data_Element);
         }
 
-        private void CreateBackground(XElement backgroundData)
+        private float GetCandyFractionForRanking(XElement rankData, string attributeName, float defaultValue)
+        {
+            float value = defaultValue;
+
+            if ((rankData != null) && (rankData.Attribute(attributeName) != null))
+            {
+                value = (float)rankData.Attribute(attributeName);
+            }
+
+            return value;
+        }
+
+        private void FinalizeLevelSetup(XElement levelData)
         {
             Background inGameBackground = new Background();
-            inGameBackground.TextureReference = backgroundData.Attribute("texture").Value;
-            inGameBackground.TargetArea = new Rectangle(0,0, BackgroundDimensions.X, BackgroundDimensions.Y);
+            inGameBackground.TextureReference = levelData.Element(Background_Data_Element).Attribute("texture").Value;
+            inGameBackground.TargetArea = new Rectangle(0, 0, BackgroundDimensions.X, BackgroundDimensions.Y);
             _registerGameObject(inGameBackground);
+
+            Map.ViewportDimensionsInTiles = new Point(
+                (BackgroundDimensions.X / Definitions.Grid_Cell_Pixel_Size) + 1, 
+                (BackgroundDimensions.Y / Definitions.Grid_Cell_Pixel_Size) + 3);
+
+            Map.WireUpBombBlockBlastColliders(_registerGameObject);
+
+            _registerGameObject(Map);
+
+            Player.Map = Map;
         }
 
         public void ReinstateDynamicObjects(XElement serializedData)
         {
             WireUpCallElementFactoryCallbacks();
 
-            BlockFactory.ReinstateSerializedBlocks(GetSerializedFactoryData(serializedData, BlockFactory.Serialized_Data_Identifier));
+            XElement levelData = LoadLevelData();
+            Map = BlockFactory.ReinstateLevelBlockMap(levelData.Element(Terrain_Data_Element).Element(BlockFactory.Data_Group_Node_Name));
+            
             CollectableFactory.ReinstateSerializedCollectables(GetSerializedFactoryData(serializedData, CollectableFactory.Serialized_Data_Identifier));
             FlagFactory.ReinstateSerializedFlags(GetSerializedFactoryData(serializedData, FlagFactory.Serialized_Data_Identifier));
             SignpostFactory.ReinstateSerializedSignposts(GetSerializedFactoryData(serializedData, SignpostFactory.Signpost_Serialized_Data_Identifier));
             SignpostFactory.ReinstateSerializedRouteMarkers(GetSerializedFactoryData(serializedData, SignpostFactory.Route_Marker_Serialized_Data_Identifier));
 
-            _registerGameObject(new Background());
-
             Player = CharacterFactory.ReinstatePlayer();
+
+            FinalizeLevelSetup(levelData);
         }
 
         private List<XElement> GetSerializedFactoryData(XElement serializedData, string identifierTag)
@@ -157,8 +192,11 @@ namespace Bopscotch.Gameplay
         private const string Content_Path = "Content";
         private const string Data_Root_Element = "leveldata";
         private const string Background_Data_Element = "background";
+        private const string Rank_Fraction_Data_Element = "rank-fractions";
         private const string Terrain_Data_Element = "terrain";
         private const string Player_Data_Element = "player";
         private const string Race_Data_Element = "race-laps";
+        private const float Rank_B_Candy_Fraction = 0.75f;
+        private const float Rank_A_Candy_Fraction = 0.875f;
     }
 }

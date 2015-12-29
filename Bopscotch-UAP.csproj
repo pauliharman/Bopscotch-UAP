@@ -161,8 +161,11 @@
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Display\Survival\TutorialRunner.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Background.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blackout.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\BlockMap.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\Block.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\BlockFactory.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\BombBlock.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\BombBlockBlastCollider.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\IceBlock.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\ObstructionBlock.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Blocks\RaceModePowerUpSmashBlock.cs" />
@@ -519,9 +522,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Characters\Player\Old\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

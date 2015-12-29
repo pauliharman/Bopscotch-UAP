@@ -7,6 +7,8 @@ using Microsoft.Xna.Framework;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Game_Objects.Tile_Map;
 using Leda.Core.Game_Objects.Controllers;
+using Leda.Core.Game_Objects.Controllers.Collisions;
+using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
 using Leda.Core.Timing;
 
@@ -23,13 +25,42 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
         public static AnimationController AnimationController { set { Factory._animationController = value; } }
         public static SmashBlock.SmashCallbackMethod SmashBlockCallback { set { Factory._smashBlockCallback = value; } }
         public static AdditiveLayerParticleEffectManager.CloudBurstEffectInitiator SmashBlockRegerationCallback { set { Factory._smashBlockRegenerationCallback = value; } }
+        public static AdditiveLayerParticleEffectManager.FireballEffectInitiator BombBlockDetonationCallback { set { Factory._bombBlockDetonationCallback = value; } }
 
-        public static TileMap LoadBlocks(XElement blockDataGroup)
+        public static int SmashBlockCandyCount { get { return _factory._smashBlockCandyCount; } }
+
+        public static BlockMap CreateLevelBlockMap(XElement blockDataGroup) 
         {
+            return Factory.GenerateBlockMap(blockDataGroup); 
+        }
+
+        public static BlockMap ReinstateLevelBlockMap(XElement blockDataGroup)
+        {
+            return Factory.GenerateBlockMap(blockDataGroup);
+        }
+
+        private TimerController.TickCallbackRegistrationHandler _registerTimerTick;
+        private SmashBlock.SmashCallbackMethod _smashBlockCallback;
+        private AdditiveLayerParticleEffectManager.CloudBurstEffectInitiator _smashBlockRegenerationCallback;
+        private AdditiveLayerParticleEffectManager.FireballEffectInitiator _bombBlockDetonationCallback;
+        private AnimationController _animationController;
+
+        private List<BombBlock> _bombs;
+        private int _smashBlockCandyCount;
+
+        private void Reset()
+        {
+        }
+
+        private BlockMap GenerateBlockMap(XElement blockDataGroup)
+        {
+            _bombs = new List<BombBlock>();
+            _smashBlockCandyCount = 0;
+
             List<Block> blocks = new List<Block>();
             Point worldDimensions = Point.Zero;
 
-            Factory.Reset();
+            Reset();
 
             foreach (XElement node in blockDataGroup.Elements())
             {
@@ -41,18 +72,7 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
                 worldDimensions.Y = Math.Max(worldDimensions.Y, (int)toAdd.WorldPosition.Y + Definitions.Grid_Cell_Pixel_Size);
             }
 
-            return Factory.CreateTileMap(worldDimensions, blocks);
-        }
-
-        private int _nextBlockID;
-        private TimerController.TickCallbackRegistrationHandler _registerTimerTick;
-        private SmashBlock.SmashCallbackMethod _smashBlockCallback;
-        private AdditiveLayerParticleEffectManager.CloudBurstEffectInitiator _smashBlockRegenerationCallback;
-        private AnimationController _animationController;
-
-        private void Reset()
-        {
-            _nextBlockID = 0;
+            return CreateBlockMap(worldDimensions, blocks);
         }
 
         private Block CreateBlockFromXmlNode(XElement node)
@@ -66,12 +86,12 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
                 case SpikeBlock.Data_Node_Name: newBlock = CreateSpikeBlock(node); break;
                 case ObstructionBlock.Data_Node_Name: newBlock = CreateObstructionBlock(node); break;
                 case IceBlock.Data_Node_Name: newBlock = CreateIceBlock(node); break;
+                case BombBlock.Data_Node_Name: newBlock = CreateBombBlock(node); break;
                 case Block.Data_Node_Name: newBlock = CreateBlock(node); break;
             }
 
             if (newBlock != null) 
             { 
-                newBlock.ID = string.Concat(Serialized_Data_Identifier, _nextBlockID++);
                 if (newBlock is IAnimated) { _animationController.AddAnimatedObject((IAnimated)newBlock); }
             }
 
@@ -82,7 +102,6 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
         {
             Block newBlock = new Block();
             newBlock.WorldPosition = new Vector2((float)node.Attribute("x"), (float)node.Attribute("y"));
-            newBlock.TextureReference = node.Attribute("texture").Value;
             newBlock.Texture = TextureManager.Textures[node.Attribute("texture").Value];
 
             return newBlock;
@@ -92,7 +111,6 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
         {
             ObstructionBlock newBlock = new ObstructionBlock();
             newBlock.WorldPosition = new Vector2((float)node.Attribute("x"), (float)node.Attribute("y"));
-            newBlock.TextureReference = node.Attribute("texture").Value;
             newBlock.Texture = TextureManager.Textures[node.Attribute("texture").Value];
 
             return newBlock;
@@ -102,8 +120,22 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
         {
             IceBlock newBlock = new IceBlock();
             newBlock.WorldPosition = new Vector2((float)node.Attribute("x"), (float)node.Attribute("y"));
-            newBlock.TextureReference = node.Attribute("texture").Value;
             newBlock.Texture = TextureManager.Textures[node.Attribute("texture").Value];
+
+            return newBlock;
+        }
+
+        private BombBlock CreateBombBlock(XElement node)
+        {
+            BombBlock newBlock = new BombBlock();
+            newBlock.WorldPosition = new Vector2((float)node.Attribute("x"), (float)node.Attribute("y"));
+            newBlock.Texture = TextureManager.Textures[node.Attribute("texture").Value];
+            newBlock.ShouldRegenerate = Data.Profile.PlayingRaceMode;
+            newBlock.DetonationParticleEffect = _bombBlockDetonationCallback;
+            newBlock.RegenerationParticleEffect = _smashBlockRegenerationCallback;
+            newBlock.TickCallback = _registerTimerTick;
+
+            _bombs.Add(newBlock);
 
             return newBlock;
         }
@@ -137,7 +169,10 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
             foreach (XElement el in node.Elements("contains-item")) 
             {
                 Data.SmashBlockItemData item = CreateSmashBlockItem(el, newSmashBlock.WorldPosition);
-                if (item != null) { newSmashBlock.Contents.Add(item); }
+                if (item != null) 
+                { 
+                    newSmashBlock.Contents.Add(item);
+                }
             }
 
             return newSmashBlock;
@@ -157,7 +192,7 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
             switch (node.Attribute("action").Value)
             {
                 case "add-ticket": itemData.AffectsItem = Data.SmashBlockItemData.AffectedItem.GoldenTicket; break;
-                case "score": itemData.AffectsItem = Data.SmashBlockItemData.AffectedItem.Score; break;
+                case "score": itemData.AffectsItem = Data.SmashBlockItemData.AffectedItem.Score; _smashBlockCandyCount += itemData.Count; break;
             }
 
             itemData.Value = (int)node.Attribute("value");
@@ -174,9 +209,9 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
             return newSpikeBlock;
         }
 
-        private TileMap CreateTileMap(Point worldDimensions, List<Block> tiles)
+        private BlockMap CreateBlockMap(Point worldDimensions, List<Block> tiles)
         {
-            TileMap map = new TileMap(
+            BlockMap map = new BlockMap(
                 worldDimensions.X / Definitions.Grid_Cell_Pixel_Size,
                 worldDimensions.Y / Definitions.Grid_Cell_Pixel_Size,
                 Definitions.Grid_Cell_Pixel_Size,
@@ -190,7 +225,15 @@ namespace Bopscotch.Gameplay.Objects.Environment.Blocks
                     (int)(tiles[i].WorldPosition.Y / Definitions.Grid_Cell_Pixel_Size), 
                     tiles[i]);
             }
-
+			
+            for (int i = 0; i < _bombs.Count; i++ )
+            {
+                _bombs[i].Map = map;
+                _bombs[i].MapLocation = new Point(
+                    (int)(_bombs[i].WorldPosition.X / Definitions.Grid_Cell_Pixel_Size),
+                    (int)(_bombs[i].WorldPosition.Y / Definitions.Grid_Cell_Pixel_Size));
+            }
+			
             return map;
         }
 
