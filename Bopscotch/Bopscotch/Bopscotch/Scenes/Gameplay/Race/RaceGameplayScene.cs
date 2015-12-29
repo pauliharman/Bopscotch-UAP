@@ -2,7 +2,6 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.GamerServices;
 
 using Leda.Core;
 using Leda.Core.Gamestate_Management;

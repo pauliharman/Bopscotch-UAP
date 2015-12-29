@@ -3,8 +3,6 @@ using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
-using Microsoft.Xna.Framework.GamerServices;
-
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Serialization;
 using Leda.Core.Asset_Management;

@@ -47,6 +47,7 @@ namespace Bopscotch.Interface
             get { return _worldPosition; }
             set { _worldPosition = value; foreach (KeyValuePair<string, Button> kvp in _buttons) { kvp.Value.ParentPosition = value; } }
         }
+        public bool WorldPositionIsFixed { get { return false; } }
         public float WorldDepth { get { return 1.0f; } set { } }
         public int RenderLayer { get { return Render_Layer; } set { } }
 

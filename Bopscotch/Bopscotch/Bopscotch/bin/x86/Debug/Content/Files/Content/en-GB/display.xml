@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<elements>
-  <element type="text" x-position="800" y-position="100" scale="1.0">Display Settings</element>
-
-  <element type="text" x-position="800" y-position="400" scale="0.65">Use directional button up/down to</element>
-  <element type="text" x-position="800" y-position="450" scale="0.65">increase/decrease display area</element>
-</elements>

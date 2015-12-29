@@ -33,7 +33,7 @@ namespace Bopscotch.Interface
 
             try
             {
-                _selectedCulture = Thread.CurrentThread.CurrentCulture.Name;
+                _selectedCulture = System.Globalization.CultureInfo.CurrentCulture.Name;
                 localisationXML = FileManager.LoadXMLContentFile(string.Format(Translations_File_Template, _selectedCulture));
             }
             catch

@@ -1,7 +1,6 @@
 using System;
 
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.GamerServices;
 
 using Leda.Core;
 using Leda.Core.Asset_Management;
@@ -19,7 +18,7 @@ namespace Bopscotch
             //: base(1600, 900, false)
             //: base(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, true)
         {
-            Guide.SimulateTrialMode = false;
+//            Guide.SimulateTrialMode = false;
 
             ControllerPool.CreateForGame(this);
             EnsureAllContentIsVisible = true;

@@ -47,5 +47,11 @@ namespace Leda.Core.Game_Objects.Controllers.Collisions
                 }
             }
         }
+
+        private void CheckForAndHandleCollision(ICollidable collidable1, ICollidable collidable2)
+        {
+            // suspect this class is deprecated, so not fixing this
+            throw new NotImplementedException();
+        }
     }
 }

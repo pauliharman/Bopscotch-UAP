@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Leda.Core.Game_Objects.Behaviours;
+using System.Reflection;
 
 namespace Leda.Core.Serialization
 {
@@ -126,7 +127,7 @@ namespace Leda.Core.Serialization
 
                     ((ISerializable)target).Deserialize(dataItems[0].Element("object"));
                 }
-                else if (typeof(T).IsEnum)
+                else if (typeof(T).GetTypeInfo().IsEnum)
                 {
                     foreach (T item in Enum.GetValues(typeof(T)))
                     {

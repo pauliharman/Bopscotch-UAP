@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
@@ -19,7 +20,7 @@ namespace Leda.Core.Gamestate_Management
         public delegate void AssetLoadCompletionHandler(Type loaderSceneType);
 
         private XDocument _assetsForThreadedLoad;
-        private Thread _loader = null;
+        private Task _loadingTask = null;
 
         private string _assetListFileToLoad;
         private int _totalAssetsToLoad;
@@ -30,8 +31,8 @@ namespace Leda.Core.Gamestate_Management
         public Type PostLoadTargetSceneType { set { NextSceneType = value; } }
         public float AssetLoadProgress { get { return _totalAssetsToLoad > 0 ? (float)_loadedAssetCount / (float)_totalAssetsToLoad : 0.0f; } }
 
-        private bool ReadyToLoad { get { return ((AssetLoadProgress == 0.0f) && (_loader == null)); } }
-        private bool LoadCompleted { get { return ((AssetLoadProgress == 1.0f) && (_loader != null)); } }
+        private bool ReadyToLoad { get { return ((AssetLoadProgress == 0.0f) && (_loadingTask == null)); } }
+        private bool LoadCompleted { get { return ((AssetLoadProgress == 1.0f) && (_loadingTask != null && _loadingTask.IsCompleted)); } }
 
         public AssetLoaderScene(int bufferWidth, int bufferHeight)
             : base(bufferWidth, bufferHeight)
@@ -58,7 +59,7 @@ namespace Leda.Core.Gamestate_Management
         public override void Activate()
         {
             _totalAssetsToLoad = 0;
-            _loader = null;
+            _loadingTask = null;
 
             base.Activate();
         }
@@ -76,9 +77,7 @@ namespace Leda.Core.Gamestate_Management
 
             CalculateTotalAssetCount();
 
-            ThreadStart threadStarter = new ThreadStart(ThreadedAssetLoader);
-            _loader = new Thread(threadStarter);
-            _loader.Start();
+            _loadingTask = Task.Run(() => ThreadedAssetLoader());
         }
 
         private void CalculateTotalAssetCount()
@@ -135,10 +134,10 @@ namespace Leda.Core.Gamestate_Management
 
         private void CompleteThreadedAssetLoad()
         {
-            if (_loader != null)
+            if (_loadingTask != null)
             {
-                _loader.Join();
-                _loader = null;
+                _loadingTask.Wait();
+                _loadingTask = null;
             }
 
             Deactivate();

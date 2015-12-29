@@ -1,2 +1,0 @@
-C:\Dev-Mono\PC\Bop2013\Project - Multi-res\Bopscotch\Bopscotch\BopscotchContent\obj\x86\Debug\BopscotchContent.contentprojResolveAssemblyReference.cache
-C:\Dev-Mono\PC\Bop2013\Project\Bopscotch\Bopscotch\BopscotchContent\obj\x86\Debug\BopscotchContent.contentprojResolveAssemblyReference.cache
