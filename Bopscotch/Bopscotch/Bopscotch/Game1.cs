@@ -15,11 +15,7 @@ namespace Bopscotch
     public class Game1 : GameBase
     {
         public Game1()
-            //: base(1440,900, true)
-            //: base(1200, 675, false)
-            //: base(1280, 768, false)
-            //: base(1600, 900, false)
-            : base(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, true)
+            : base(Orientation.Landscape)
         {
             ControllerPool.CreateForGame(this);
             EnsureAllContentIsVisible = true;
@@ -27,8 +23,6 @@ namespace Bopscotch
 
         protected override void Initialize()
         {
-            Definitions.IsWideScreen = false;
-
             AddScene(new Scenes.NonGame.LoadingScene());
             AddScene(new Scenes.NonGame.TitleScene());
             AddScene(new Scenes.NonGame.CreditsScene());
@@ -42,8 +36,6 @@ namespace Bopscotch
 
             base.Initialize();
 
-            SceneTransitionCrossFadeTextureName = "pixel";
-
             DisplayInformation di = DisplayInformation.GetForCurrentView();
 
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
@@ -53,12 +45,11 @@ namespace Bopscotch
 
             int screenWidth = (int)(screenSize.Width * di.RawPixelsPerViewPixel);
             int width = (int)((screenSize.Height * di.RawPixelsPerViewPixel * 16.0) / 9.0);
-            int height = (int)(screenSize.Height * di.RawPixelsPerViewPixel);
+            int screenHeight = (int)(screenSize.Height * di.RawPixelsPerViewPixel);
 
-            //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1440,900);
-            SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle((screenWidth-width)/2, 0, width, height);
-            //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1280, 768);
-            //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1200, 675);
+            SetResolutionMetrics(Definitions.Back_Buffer_Width, Definitions.Back_Buffer_Height, ScalingAxis.X, screenWidth, screenHeight);
+
+            SceneTransitionCrossFadeTextureName = "pixel";
 
             StartInitialScene(typeof(Scenes.NonGame.LoadingScene));
         }
