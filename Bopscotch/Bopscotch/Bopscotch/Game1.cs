@@ -6,20 +6,21 @@ using Leda.Core;
 using Leda.Core.Asset_Management;
 
 using Bopscotch.Input;
+using Windows.UI.ViewManagement;
+using Windows.Foundation;
+using Windows.Graphics.Display;
 
 namespace Bopscotch
 {
     public class Game1 : GameBase
     {
         public Game1()
-            : base(1440,900, true)
+            //: base(1440,900, true)
             //: base(1200, 675, false)
             //: base(1280, 768, false)
             //: base(1600, 900, false)
-            //: base(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, true)
+            : base(GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height, true)
         {
-//            Guide.SimulateTrialMode = false;
-
             ControllerPool.CreateForGame(this);
             EnsureAllContentIsVisible = true;
         }
@@ -43,11 +44,21 @@ namespace Bopscotch
 
             SceneTransitionCrossFadeTextureName = "pixel";
 
-            SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1440,900);
-            //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width, GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+            DisplayInformation di = DisplayInformation.GetForCurrentView();
+
+            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.FullScreen;
+            ApplicationView view = ApplicationView.GetForCurrentView();
+            bool isFullScreen = view.TryEnterFullScreenMode();
+            Rect screenSize = view.VisibleBounds;
+
+            int width = (int)((screenSize.Height * di.RawPixelsPerViewPixel * 16.0) / 9.0);
+            int height = (int)(screenSize.Height * di.RawPixelsPerViewPixel);
+
+            //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1440,900);
+            SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, width, height);
             //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1280, 768);
             //SceneBackBufferArea = new Microsoft.Xna.Framework.Rectangle(0, 0, 1200, 675);
-            
+
             StartInitialScene(typeof(Scenes.NonGame.LoadingScene));
         }
 
