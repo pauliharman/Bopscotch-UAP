@@ -1,0 +1,82 @@
+﻿using System;
+
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+using Leda.Core;
+using Leda.Core.Gamestate_Management;
+using Leda.Core.Asset_Management;
+using Leda.Core.Animation.Skeletons;
+
+namespace Bopscotch.Tests
+{
+    public class TestScene : StorableScene
+    {
+        private StorableBone _testBone;
+        private DisposableSkeleton _testSkeleton;
+
+        public TestScene()
+            : base("Test-Scene", Definitions.Back_Buffer_Width, Definitions.Back_Buffer_Height)
+        {
+            //_testBone = new StorableBone();
+            //_testBone.ID = "test1";
+            //_testBone.WorldPosition = new Vector2(100.0f, 100.0f);
+            //_testBone.RenderLayer = 0;
+            //_testBone.RenderDepth = 0.5f;
+            //_testBone.Origin = new Vector2(16.0f, 16.0f);
+            //_testBone.Visible = true;
+
+            //RegisterGameObject(_testBone);
+
+            _testSkeleton = new DisposableSkeleton();
+            _testSkeleton.AddBone(new StorableBone() { ID = "b1", Origin = new Vector2(16.0f) }, "");
+            _testSkeleton.AddBone(new StorableBone() { ID = "b2", Origin = new Vector2(16.0f), RelativeDepth = 0.1f, RelativePosition = new Vector2(0.0f, 64.0f) }, "b1");
+            _testSkeleton.AddBone(new StorableBone() { ID = "b3", Origin = new Vector2(16.0f), RelativeDepth = 0.1f, RelativePosition = new Vector2(0.0f, 64.0f) }, "b2");
+            _testSkeleton.RenderLayer = 0;
+            _testSkeleton.WorldPosition = new Vector2(500.0f,300.0f);
+            _testSkeleton.Visible = true;
+            _testSkeleton.Mirror = true;
+            _testSkeleton.Rotation = MathHelper.PiOver4;
+
+            RegisterGameObject(_testSkeleton);
+        }
+
+        public override void HandleAssetLoadCompletion(Type loaderSceneType)
+        {
+            base.HandleAssetLoadCompletion(loaderSceneType);
+
+            _testSkeleton.SetSkinForBone("b1", "bone", new Rectangle(0, 0, 32, 80));
+            _testSkeleton.SetSkinForBone("b2", "bone", new Rectangle(0, 0, 32, 80));
+            _testSkeleton.SetSkinForBone("b3", "bone", new Rectangle(0, 0, 32, 80));
+
+            //_testBone.ApplySkin("bone", new Rectangle(0, 0, 80, 32));
+        }
+
+        public override void Update(GameTime gameTime)
+        {
+            _testSkeleton.Update();
+            base.Update(gameTime);
+        }
+
+        protected override void Render()
+        {
+            base.Render();
+
+            SpriteBatch.Begin();
+            TextWriter.Write("Testing...", SpriteBatch, Vector2.Zero, Color.White, 0.1f, TextWriter.Alignment.Left);
+
+            RenderTools.Line(SpriteBatch, TextureManager.Textures["pixel"],
+                _testSkeleton.WorldPosition - Utility.RotatedNormal(_testSkeleton.Rotation) * 40.0f,
+                _testSkeleton.WorldPosition + Utility.RotatedNormal(_testSkeleton.Rotation) * 40.0f,
+                1.0f,
+                Color.White,
+                0.5f);
+            SpriteBatch.End();
+        }
+
+        protected override void HandleBackButtonPress()
+        {
+            Game.Exit();
+        }
+    }
+}

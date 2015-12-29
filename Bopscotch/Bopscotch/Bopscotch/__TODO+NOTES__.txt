@@ -1,0 +1,346 @@
+﻿ORIGINAL PRODUCT ID: {ac49a235-4007-4f96-80c0-558ad0daa8f9} WP8 WMAppManifest is Properties folder
+
+Beta test Product ID form store: {af31748e-a777-46ac-abcb-1215bd2c6245}
+
+SPRING 2015 UPDATE
+==================
+- Dial down bell SFX [DONE]
+- Investigate/improve jump sensitivity
+- Hint text displayed after [n] deaths
+- Upgrade tutorial:
+	- Multiple levels, each teaching one thing
+	- Use hint text (zero deaths to trigger)
+	- Allow level skip (does not use golden ticket)
+- Split difficulty rating to "speed [x], difficulty [y]"
+- Overhead speedometer
+- Time attack play mode
+- Social integration on mobile
+- Replace Paypal with Play IAP on Android
+- Social network integration (facebook posting on race win/level best score/zone complete etc)
+- "Free" version for mobile (selection of levels, exit interstitial to full version, ads)
+
+
+??? Jump sensitivity on mobile due to input handling, not player motion engine - check this ???
+
+FILES TOUCHED IN UPDATE:
+- SoundEffects\speed-sign-trigger.wav (content)
+- Player.cs
+- PlayerMotionEngine.cs
+
+
+FUTURE UPDATES
+==============
+- Improve trial mechanic (selection of levels from all zones)
+- Give adventure mode scores meaning
+- Catacombs area - explosive feature blocks
+- Means of having more than one race track per area
+- Background animation
+- Player should kick up dust trails - faster movement = more dust
+- Other feature blocks:
+	- Translucent
+	- Magnet
+    
+    
+Hi,
+
+I was wondering if you would be interested in taking a look at Bopscotch - our (Leda Entertainment) latest release for Android.
+
+Game features:
+- Over 90 single player levels in "adventure" mode
+- Cross platform real time two player "race" mode with three race circuits
+- Customisable characters with unlockable costumes
+- No adverts, no pay-to-win
+
+Play store link: https://play.google.com/store/apps/details?id=com.ledaentertainment.bopscotch
+
+Bopscotch is a 2D platform runner game, but as well as the standard "jump to avoid obstacles" mechanic, the player also has a degree of control over the speed their character moves at. This adds an extra level of challenge to the genre as the player must speed up and slow down in order to navigate the obstruction on the course as quickly as possible, while collecting score-boosting items.
+
+The feature that set Bopscotch apart from other games in this genre is the race mode. By connecting to wifi, players can link up and go head-to-head against each other in real time, regardless of what combination of operating systems their devices are running - so an Android owner could race against another player on another Android handset, or a Windows Phone, or iPhone or iPad. Currently the game has three race circuits, with further courses to be added in future updates (as well as addition single player levels and character costumes).
+
+Bopscotch has a free trial mode featuring the first 30 single player levels and seven complete races on any of the three race circuits (ie: if the wifi connection is lost in mid race, a trial race will not be "used up"), with the full version costing £1.99GBP. This is a one off payment to unlock the full version: there are no in game adverts or microtransactions. A Windows Phone version is also available, and an iOS version is scheduled for launch in the near future.
+
+The launch press pack can be downloaded from here - www.ledaentertainment.com/downloads/press/Bopscotch Android Launch PR.zip which contains image assets and links to the trailer and race mode demo videos.
+
+If you need any further information, please let me know.
+
+Kind regards,
+Ben Pritchard
+
+
+
+    
+
+Bopscotch - platform runner with device-to-device real time racing now available for WP8
+
+Hello,
+
+Leda Entertainment are proud to announce the launch of Bopscotch - a 2D platform runner game with a puzzle element and two-player device-to-device racing in real time for Windows Phone 8.
+
+The game's puzzle element comes from the ability of the player to control their "Bopper" character's speed (within limits), making the game more than just a test of reflexes and timing. There are over 90 single player levels in "Adventure" mode, while "Race" mode allows players to link up and race head to head in real time over local wifi - this feature also works cross-platform, so Windows Phone owners can race iPhone or Android owners as well as other Windows Phone owners!
+
+The game also features customisable characters, with a number of costumes to unlock.
+
+The game is free for the trial version, with the full version costing £1.99.
+Download link: http://www.windowsphone.com/en-gb/store/app/bopscotch/653cddc7-7c8c-4563-8c5d-e9e547e27943
+
+For more details, images and video links, please download the press pack: http://www.ledaentertainment.com/downloads/press/Bopscotch%20WP8%20release%20press%20pack.zip
+
+Kind regards,
+Ben Pritchard
+
+
+PROMOTION PLAN:
+Button push, all platforms (Sept 17)
+Official launch - send PRs (Sept 19)
+GEEK Birmingham - collect emails for newsletter, set up prepaid code draw (Sept 19-21, one draw/day)
+Organise Play Expo tournament - Replay Events for on-site logistics, Nokia for prize handset & possible sponsorship (by Sept 27)
+Newsletter drop - congratulate winners from GEEK, announce Play, plus tournament if happening (Sept 27)
+Play Expo - tournament if possible, otherwise code draw as GEEK (Oct 11)
+Newsletter drop - congratulate winners from Play
+Nokia Promo (Oct 20-26)
+Christmas theme upgrade - new levels, race course, santa costume
+Cut-price full version (Dec 25-Jan 1)
+
+
+
+
+TODO:
+Email
+    - all blog etc.contacts
+    
+Prep website
+    - Ensure iOS links set up and working
+
+
+PRE-RELEASE CHECKS:
+    - Data.Profile.CreateProfile - _trialModeRacesRemaining should be set correctly
+    - Definitions - Overwrite_Profile should be false, Trial_Version should be true
+    - DefaultLevels.xml - ensure all tutorial options will switch on in trial mode, all apart from tutorial is locked
+    - Avatar/Components.xml - ensure all costume components are locked
+    
+SUBMISSION DETAILS:
+
+Description
+===========
+Bounce, jump, smash and munch across the world of Bopscotch! Take on fiendish solo play levels in adventure mode, or link up and go head-to-head against a friend in race mode!
+
+Take control of a "Bopper", bouncing across multiple colourful stages - you can speed up, slow down and jump, but you can't stop! Grab all the candy you can, use signs to change speed limits and direction, and smash through crates to open up new routes and find hidden bonuses - or to power up when racing!
+
+Game features:
+- Ninety single player levels in adventure mode
+- Unique real-time cross-platform race mode with three courses
+- Customisable Bopper characters with costumes to unlock
+- NO ADS, NO PAY-TO-WIN! 
+
+Keywords
+========
+platform,runner,candy,race,adventure
+
+
+BUGS TO FIX PRE-RELEASE:
+
+GENERAL
+- [FIXED] - Locked areas should not show levels
+- [FIXED] - Golden tickets should not be usable when level completion sequence is running
+- [FIXED] - Golden ticket use should ensure "Get Ready" popup dismisses
+
+XBOX
+- [FIXED] - Complete conformity to display area setup:
+    - [FIXED] - LoadingScene
+    - [FIXED] - Race quit dialog/controller unplugged dialog
+    - [FIXED] - Default should detect aspect ratio and set up accordingly
+- [FIXED] Detect if controller thumbstick y-axis is inverted and counter-invert
+- [FIXED] Start button should pause game
+- [FIXED] - Quit menu up and down inverted? (Check quit game, quit level, quit race)
+
+WINPHONE
+- [FIXED] - Ensure no longer transmitting following obscure event in race mode
+- [FIXED] - Multiple opening of full content unlock window (sporadic)
+
+ANDROID
+- [FIXED] - Text oversizing (see "more games" button)
+- [FIXED] - Tombstone recovery bug
+- [FIXED] - Re-open game following payment on website
+- [FIXED] - Menus/dialog on pause/ external access involving dialog dismiss
+
+IOS
+- [FIXED] - Keyboard dialog too wide, buttons, name entry position 
+- [FIXED] - Text oversizing on buttons
+- [FIXED] - Main menu buttons offscreen
+- [FIXED] - Tutorial flags offscreen
+- [FIXED] - Edit character select buttons offscreen
+- [FIXED] - Sound effect crash (play limit exception) on race exit
+- [FIXED] - Sound effects not working following resume
+- [FIXED] - No means of quitting race
+- [FIXED] - Rate/buy reminder dialog text should say "unlimited racing"
+
+LIST OF DOOM!
+
+WINPHONE
+- [DONE] - Detect full version purchase and unlock extra content
+- [DONE] - "Extras" button to display "More games"
+- [DONE] - Pause when notification center displays/incoming call
+- [DONE] - Fix tombstone handling and race interrupt/connection loss (ensure P2 drops out if P1 tombstones)
+- [DONE] - Finish rating stuff - back dialog and testing
+
+IOS
+- [DONE] - Remove debug code
+- [DONE] - Add app store API call to purchase full version
+- [DONE] - Investigate and implement link to app store ratings
+- [DONE] - (Goes to Leda site, games page) - "Extras" button to display "More games"
+- [DONE] - Fix sound
+- [DONE] - Fix communications
+- [DONE] - Sort out trial mode vs full game
+- [DONE] - Resume music following call
+- [DONE] - Kill race mode game on tombstone
+- [DONE] - Suppress network/battery display
+
+ANDROID
+- [DONE] - Fix lock-up on home button press
+- [DONE] - Implement full version purchase mechanism
+- [DONE] - Investigate possible app rating systems (see http://stackoverflow.com/questions/6482783/android-approach-for-rate-my-application)
+- [DONE] - Sort out trial mode vs full game
+- [DONE] - "Extras" button to display "More games"
+
+XBOX
+- [DONE] - Investigate possibility of and deal with permanent controller loss
+- [DONE] - Finish "quit game" handling
+
+CONTENT
+- [DONE] - Levels for Waterfall
+- [DONE] - Levels for Metropolis
+- [DONE] - Costumes
+
+MECHANICS
+- [DONE] - Costume unlock feature in and out of game
+- [DONE] - Test rating/buy prompts in trial mode
+- [DONE] - Force minimum of 2 second pause on tutorial messages
+- [DONE] - Reduce end-of-area unlock spacing and icon size to allow more than three unlocks
+- [DONE] - Add limiter on number of races in trial mode
+- Make scaling axis a selectable option
+
+NICE TO HAVE
+- "All available areas complete" screen
+- Target score for level display
+- Facebook and/or twitter progress posting
+
+LAUNCH ASSETS:
+
+WINDOWS PHONE
+- Flip Cycle Tiles [DONE]: 691x336, 336x336, 100x100
+- Iconic Tiles [DONE]: 71x110, 134x202
+- App Tile [DONE]: 100x100
+- Store screenshots [DONE]: 1280x768 x 8
+
+ANDROID
+- App Tile [DONE]: 60x60
+- Store screenshots:
+- Store Icon: 512x512 32bit PNG with Alpha
+- Feature Graphic: 1024x500 24bit png no Alpha
+- Promo Graphic: 180x120 24bit png no Alpha
+
+IOS 
+- App Icon [DONE]: 57x57, 114x114, 120x120, 72x72, 144x144, 76x76, 152x152
+- Spotlight Icon [DONE]: 29x29, 58x58, 50x50, 100x100, 40x40, 80x80
+- Launch Image [DONE]: 320x480, 640x960 640x1136, 768x1024, 1536x2048
+- ITunes Art [DONE]: 512x512, 1024x1024
+
+- Store screenshots:
+    - 4.7 inch retina: 1334x750
+    - 5.5 inch retina: 2208x1242
+    - 4 inch retina: 1136x640
+    - 3 inch retina: 960x640
+
+
+
+PEOPLE TO TALK (PUBLICITY)
+MobileNations: 
+- WPCentral - George Ponder (george.ponder@wpcentral.com)
+- iMore - Peter Cohen (peter@mobilenations.com)
+- Android Central - Andrew Martonik (andrew.martonic@androidcentral.com)
+
+GamesPress.com: inbox@gamespress.com
+IndieGameMag: editors@indiegamemag.com / vparisi@indiegamemag.com (editor in chief)
+Gamasutra: news@gamasutra.com
+
+OrdinaryGamer.co.uk: dan@ordinarygamer.co.uk
+Gamerrazzi.com: media@gamerrazzi.com (gamers with disabilities)
+
+WINDOWS PHONE
+- WP7 Connect: antonio@wp7connect.com
+- Lee Stott (Microsoft)
+ANDROID
+IOS
+GENERIC/OTHER
+- Nokia (WP8/X) - Carly, Riaz
+- Fragfest 360: admin@fragfest360.com
+- Super Mega Podcast: team@supermegapodcast.com
+- The Game Shed: info@thegamesshed.com
+- Indie Retro News: admin@indieretronews.com
+READ THESE
+- http://www.pixelprospector.com/the-big-list-of-indie-game-marketing/
+
+
+
+BETA: Goal - Testable on Windows Phone 8/Xbox 360/PC - ACHIEVED!
+PHASE 1: Goal - Windows Phone 8/Xbox 360 launch - ACHIEVED!
+PHASE 2: Goal - Cross platform mobile launch - ACHIEVED!
+
+Bugs/Fixes/Incomplete
+	- Dismiss popups - can we animate while "sitting"? - NOT SIMPLE.
+    - Android SFX volume is too low?
+    - Replacements for rate/buy on Android/iOS?
+    
+    - Fix keyboard input processing to work with xbox-style interface (carousel etc) INCLUDING KEY REPEAT IN MENU MODE!
+    
+
+PHASE 3: Goal - Enhanced features on all platforms, priority order of WP8, XBox, iOS, Android
+- Levels for two further areas (race and adventure) - Mountains and Carnival?
+- Enemies
+- On-off hazards
+- Upgrades:
+	- IAP for game credits (all platforms)
+	- Game credit purchase of level packs/avatar skins
+- New race power-ups
+- Content:
+	- Avatar skins
+	- Level packs
+- Interlinking:
+	- Connection to Facebook/Twitter to post scores/race results
+
+
+
+- Flying enemies
+	- Level editor enemy place, setup, store
+	- Add enemy placement to CharacterFactory
+	- Motion engine and movement response
+	- Action (dropper)
+
+Adventure Mode
+	- "Enemies"
+	- On-off hazards
+    - Magnets (prevent jumping)
+
+
+
+NOTES:
+Idea: Hard hat power up - ignore falling items (dropped by enemies) for limited time
+
+AREAS:
+- Tutorial - COMPLETE
+- Hilltops - COMPLETE
+- Metropolis - COMPLETE
+- Mountains
+- Underwater
+- Sky/space
+- Carnival
+- Jungle
+- Waterfall - COMPLETE
+- Steamworks
+- Snow/ice
+- Stadium - BG DONE
+- Construction site - BG DONE
+
+
+OTHER STUFF:
+- Same Chase (http://www.jewelbeat.com/store/downloadresults.php?catid=20&page=2) - USE THIS IN HOPPY FROG!

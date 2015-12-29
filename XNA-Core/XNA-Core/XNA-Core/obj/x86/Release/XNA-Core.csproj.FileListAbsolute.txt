@@ -1,0 +1,15 @@
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\XNA-Core.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\XNA-Core.pdb
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\Microsoft.Phone.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Windows.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\Microsoft.Phone.Interop.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Device.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Runtime.Serialization.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\Microsoft.Phone.xml
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Windows.xml
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Device.xml
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\bin\x86\Release\System.Runtime.Serialization.xml
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\obj\x86\Release\Microsoft.Xna.Framework.RuntimeProfile.txt
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\obj\x86\Release\XNA-Core.dll
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\obj\x86\Release\XNA-Core.pdb
+C:\Dev-Mono\PC\XNA-Core\XNA-Core\XNA-Core\obj\x86\Release\XNA-Core.csprojResolveAssemblyReference.cache
