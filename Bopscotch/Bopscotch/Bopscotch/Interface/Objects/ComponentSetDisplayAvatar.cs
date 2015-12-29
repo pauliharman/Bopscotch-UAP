@@ -1,8 +1,6 @@
 ﻿using System.Linq;
 using System.Collections.Generic;
 
-using Leda.Core.Game_Objects.Base_Classes;
-
 using Bopscotch.Data.Avatar;
 using Bopscotch.Interface.Dialogs.Carousel;
 

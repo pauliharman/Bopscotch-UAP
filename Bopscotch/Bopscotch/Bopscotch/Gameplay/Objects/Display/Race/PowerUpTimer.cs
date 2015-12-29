@@ -7,8 +7,6 @@ using Leda.Core.Motion;
 using Leda.Core.Motion.Engines;
 using Leda.Core.Timing;
 
-using Bopscotch.Gameplay.Coordination;
-
 namespace Bopscotch.Gameplay.Objects.Display.Race
 {
     public class PowerUpTimer : ISimpleRenderable, IMobile

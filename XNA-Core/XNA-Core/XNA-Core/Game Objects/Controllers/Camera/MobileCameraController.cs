@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Microsoft.Xna.Framework;
-
+﻿
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Motion;
 

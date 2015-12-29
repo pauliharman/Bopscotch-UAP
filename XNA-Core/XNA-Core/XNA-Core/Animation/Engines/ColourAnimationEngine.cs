@@ -1,9 +1,6 @@
 ﻿using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
-using Leda.Core.Timing;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Serialization;
 

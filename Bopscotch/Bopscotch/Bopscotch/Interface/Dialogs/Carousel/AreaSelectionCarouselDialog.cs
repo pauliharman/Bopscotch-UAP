@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
@@ -8,8 +7,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Leda.Core;
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Timing;
-
-using Bopscotch.Input;
 
 namespace Bopscotch.Interface.Dialogs.Carousel
 {

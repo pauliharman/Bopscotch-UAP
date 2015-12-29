@@ -7,7 +7,6 @@ using Leda.Core.Game_Objects.Base_Classes;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Asset_Management;
 using Leda.Core.Serialization;
-using Leda.Core.Game_Objects.Controllers.Collisions;
 
 namespace Bopscotch.Gameplay.Objects.Environment.Signposts
 {

@@ -1,7 +1,5 @@
 ﻿using System.Xml.Linq;
 
-using Microsoft.Xna.Framework;
-
 using Leda.Core;
 using Leda.Core.Game_Objects.Base_Classes;
 using Leda.Core.Game_Objects.Behaviours;

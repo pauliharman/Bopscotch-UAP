@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 
-using Leda.Core.Serialization;
-
 namespace Leda.Core.Game_Objects.Behaviours
 {
     public interface ITextureManaged : ISerializable

@@ -2,8 +2,6 @@
 
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
-
-using Bopscotch.Input;
 using Bopscotch.Interface.Dialogs.Carousel;
 
 namespace Bopscotch.Interface.Dialogs.RaceJoinScene

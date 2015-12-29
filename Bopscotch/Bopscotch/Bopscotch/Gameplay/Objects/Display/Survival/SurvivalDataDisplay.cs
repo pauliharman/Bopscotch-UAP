@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework.Graphics;
 
 using Leda.Core;
-using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Asset_Management;
 
 using Bopscotch.Data;

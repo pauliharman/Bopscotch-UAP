@@ -1,15 +1,4 @@
-﻿using System.Xml;
-using System.Xml.Linq;
-
-using Microsoft.Xna.Framework;
-
-using Leda.Core.Asset_Management;
-
-using Bopscotch.Scenes.BaseClasses;
-using Bopscotch.Interface;
-using Bopscotch.Interface.Content;
-
-namespace Bopscotch.Scenes.NonGame
+﻿namespace Bopscotch.Scenes.NonGame
 {
     public class CreditsScene : ContentSceneWithBackDialog
     {

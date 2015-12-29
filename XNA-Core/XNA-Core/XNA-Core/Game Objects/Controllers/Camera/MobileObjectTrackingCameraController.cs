@@ -1,8 +1,6 @@
 ﻿using System;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core.Game_Objects.Controllers;
 using Leda.Core.Game_Objects.Behaviours;
 
 namespace Leda.Core.Game_Objects.Controllers.Camera

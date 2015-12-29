@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
-
+﻿
 using Leda.Core.Gamestate_Management;
 
 using Bopscotch.Input;
-using Bopscotch.Interface.Dialogs.Carousel;
 
 namespace Bopscotch.Interface.Dialogs.RaceJoinScene
 {

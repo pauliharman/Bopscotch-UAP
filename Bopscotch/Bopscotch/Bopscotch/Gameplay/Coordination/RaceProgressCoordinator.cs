@@ -7,8 +7,6 @@ using Leda.Core.Timing;
 
 using Bopscotch.Data;
 using Bopscotch.Communication;
-using Bopscotch.Interface;
-using Bopscotch.Effects.Popups;
 using Bopscotch.Gameplay.Objects.Display.Race;
 using Bopscotch.Gameplay.Objects.Characters.Player;
 using Bopscotch.Gameplay.Objects.Environment.Flags;

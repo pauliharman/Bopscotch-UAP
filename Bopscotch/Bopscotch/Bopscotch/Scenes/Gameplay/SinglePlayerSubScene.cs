@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Game_Objects.Controllers;
@@ -12,14 +8,12 @@ using Leda.Core.Game_Objects.Controllers.Collisions;
 using Leda.Core.Timing;
 
 using Bopscotch.Data;
-using Bopscotch.Effects;
 using Bopscotch.Effects.Particles;
 using Bopscotch.Effects.SmashBlockItems;
 using Bopscotch.Gameplay;
 using Bopscotch.Gameplay.Controllers;
 using Bopscotch.Gameplay.Objects.Display;
 using Bopscotch.Gameplay.Objects.Environment.Blocks;
-using Bopscotch.Gameplay.Objects.Environment.Collectables;
 using Bopscotch.Gameplay.Objects.Characters.Player;
 
 namespace Bopscotch.Scenes.Gameplay

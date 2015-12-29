@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Xml.Linq;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
 using Leda.Core.Animation;
 
 namespace Leda.Core.Asset_Management

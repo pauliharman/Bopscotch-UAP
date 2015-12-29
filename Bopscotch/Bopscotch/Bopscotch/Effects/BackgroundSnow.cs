@@ -2,8 +2,6 @@
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core;
 using Leda.Core.Asset_Management;
 using Leda.Core.Game_Objects.Base_Classes;
 using Leda.Core.Game_Objects.Behaviours;

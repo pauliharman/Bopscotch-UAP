@@ -4,11 +4,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Leda.Core;
-using Leda.Core.Game_Objects.Behaviours;
 
 using Bopscotch.Interface;
-using Bopscotch.Communication;
-using Bopscotch.Gameplay.Coordination;
 
 namespace Bopscotch.Gameplay.Objects.Display.Race
 {

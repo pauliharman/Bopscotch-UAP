@@ -1,8 +1,6 @@
 ﻿using System.Xml.Linq;
 using System.Collections.Generic;
 
-using Microsoft.Xna.Framework;
-
 namespace Bopscotch.Data.Avatar
 {
     public class AvatarComponent

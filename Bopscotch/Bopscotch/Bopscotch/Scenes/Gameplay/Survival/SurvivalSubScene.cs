@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-
+﻿
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core.Game_Objects.Controllers;
 using Leda.Core.Asset_Management;
 
 using Bopscotch.Scenes.NonGame;

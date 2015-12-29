@@ -1,9 +1,4 @@
-﻿using System.Collections.Generic;
-
-using Microsoft.Xna.Framework;
-
-using Leda.Core;
-using Leda.Core.Effects.Particles;
+﻿using Leda.Core.Effects.Particles;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Game_Objects.Controllers.Camera;
 using Leda.Core.Asset_Management;

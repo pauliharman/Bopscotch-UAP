@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 
-using Leda.Core;
-
 namespace Leda.Core.Effects.Particles
 {
     public class EmitterFactory

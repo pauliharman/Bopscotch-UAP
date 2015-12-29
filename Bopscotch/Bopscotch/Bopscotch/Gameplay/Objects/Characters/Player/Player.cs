@@ -2,20 +2,16 @@
 using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core.Game_Objects.Base_Classes;
 using Leda.Core.Game_Objects.Tile_Map;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Asset_Management;
 using Leda.Core.Serialization;
-using Leda.Core.Motion;
 using Leda.Core.Shapes;
 using Leda.Core.Timing;
 using Leda.Core;
 using Leda.Core.Game_Objects.Controllers.Collisions;
 
 using Bopscotch.Data.Avatar;
-using Bopscotch.Gameplay.Coordination;
 using Bopscotch.Gameplay.Objects.Environment.Blocks;
 using Bopscotch.Gameplay.Objects.Environment.Signposts;
 using Bopscotch.Gameplay.Objects.Environment.Flags;

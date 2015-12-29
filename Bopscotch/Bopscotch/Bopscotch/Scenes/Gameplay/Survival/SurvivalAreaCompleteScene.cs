@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core;
-using Leda.Core.Gamestate_Management;
 using Leda.Core.Game_Objects.Controllers;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Timing;
@@ -15,7 +10,6 @@ using Leda.Core.Asset_Management;
 using Bopscotch.Scenes.BaseClasses;
 using Bopscotch.Scenes.NonGame;
 using Bopscotch.Data;
-using Bopscotch.Interface;
 using Bopscotch.Interface.Content;
 using Bopscotch.Gameplay.Objects.Environment;
 

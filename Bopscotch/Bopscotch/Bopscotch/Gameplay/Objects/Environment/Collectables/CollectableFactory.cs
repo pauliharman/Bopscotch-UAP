@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Leda.Core.Gamestate_Management;
-using Leda.Core.Asset_Management;
 
 namespace Bopscotch.Gameplay.Objects.Environment.Collectables
 {

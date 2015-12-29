@@ -3,7 +3,6 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Leda.Core;
 using Leda.Core.Asset_Management;
-using Leda.Core.Gamestate_Management;
 
 namespace Bopscotch.Interface.Dialogs.TitleScene
 {

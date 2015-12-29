@@ -1,17 +1,11 @@
-﻿using System.Linq;
-using System.Xml.Linq;
-using System.Collections.Generic;
-
+﻿
 using Microsoft.Xna.Framework;
 
 using Leda.Core;
-using Leda.Core.Asset_Management;
 using Leda.Core.Gamestate_Management;
 
 using Bopscotch.Data;
 using Bopscotch.Data.Avatar;
-using Bopscotch.Input;
-using Bopscotch.Interface.Objects;
 using Bopscotch.Interface.Dialogs.Carousel;
 
 namespace Bopscotch.Interface.Dialogs.EditCharacter

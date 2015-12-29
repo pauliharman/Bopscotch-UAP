@@ -1,6 +1,4 @@
-﻿using Leda.Core.Gamestate_Management;
-
-namespace Leda.Core.Game_Objects.Behaviours
+﻿namespace Leda.Core.Game_Objects.Behaviours
 {
     public interface IGameObject
     {

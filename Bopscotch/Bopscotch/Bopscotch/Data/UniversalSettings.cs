@@ -6,8 +6,6 @@ using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Serialization;
 using Leda.Core.Asset_Management;
 
-using Bopscotch.Input;
-
 namespace Bopscotch.Data
 {
     public abstract class UniversalSettings : ISerializable

@@ -1,17 +1,5 @@
-﻿using System.Xml.Linq;
-using System.Collections.Generic;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core.Game_Objects.Base_Classes;
-using Leda.Core.Game_Objects.Behaviours;
+﻿using System.Collections.Generic;
 using Leda.Core.Asset_Management;
-using Leda.Core.Serialization;
-using Leda.Core.Timing;
-using Leda.Core;
-
-using Bopscotch.Effects;
 
 namespace Bopscotch.Gameplay.Objects.Environment.Blocks
 {

@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace Bopscotch.Communication
+﻿namespace Bopscotch.Communication
 {
     public class SubSceneCommunicator : ICommunicator
     {

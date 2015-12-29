@@ -1,12 +1,8 @@
 ﻿using System.Xml.Linq;
 
-using Microsoft.Xna.Framework;
-
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Serialization;
 using Leda.Core.Asset_Management;
-
-using Bopscotch.Data;
 using Bopscotch.Gameplay.Objects.Environment.Blocks;
 using Bopscotch.Gameplay.Objects.Environment.Collectables;
 

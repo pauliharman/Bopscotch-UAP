@@ -1,14 +1,8 @@
-using System.Xml;
-using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
 
 using Leda.Core;
 using Leda.Core.Asset_Management;
-
-using Bopscotch.Scenes.BaseClasses;
-using Bopscotch.Interface;
-using Bopscotch.Interface.Content;
 using Bopscotch.Input;
 
 namespace Bopscotch.Scenes.NonGame

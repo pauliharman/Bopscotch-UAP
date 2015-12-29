@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
 using Leda.Core.Game_Objects.Controllers;
 using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core;
 
 using Bopscotch.Input;
 using Bopscotch.Scenes.BaseClasses;
 using Bopscotch.Interface;
 using Bopscotch.Interface.Dialogs.TitleScene;
 using Bopscotch.Interface.Content;
-using Bopscotch.Effects;
 using Bopscotch.Effects.Popups;
 
 namespace Bopscotch.Scenes.NonGame

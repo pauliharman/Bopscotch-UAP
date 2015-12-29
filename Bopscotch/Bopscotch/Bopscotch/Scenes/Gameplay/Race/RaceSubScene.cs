@@ -1,22 +1,14 @@
-﻿using System.Collections.Generic;
-
+﻿
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core;
 using Leda.Core.Game_Objects.Behaviours;
 using Leda.Core.Asset_Management;
 using Leda.Core.Timing;
-
-using Bopscotch.Input;
 using Bopscotch.Data.Avatar;
-using Bopscotch.Effects.Popups;
 using Bopscotch.Gameplay.Coordination;
 using Bopscotch.Gameplay.Objects.Characters.Player;
 using Bopscotch.Gameplay.Objects.Display.Race;
 using Bopscotch.Gameplay.Objects.Environment;
 using Bopscotch.Gameplay.Objects.Environment.Blocks;
-using Bopscotch.Gameplay.Objects.Environment.Flags;
 
 namespace Bopscotch.Scenes.Gameplay.Race
 {

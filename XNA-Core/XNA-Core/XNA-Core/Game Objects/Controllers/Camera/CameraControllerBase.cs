@@ -3,7 +3,6 @@
 using Microsoft.Xna.Framework;
 
 using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core.Motion;
 
 namespace Leda.Core.Game_Objects.Controllers.Camera
 {

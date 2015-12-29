@@ -1,9 +1,4 @@
-﻿using System.Xml.Linq;
-
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core.Serialization;
+﻿using Microsoft.Xna.Framework.Graphics;
 
 using Bopscotch.Effects;
 using Bopscotch.Gameplay.Objects.Behaviours;

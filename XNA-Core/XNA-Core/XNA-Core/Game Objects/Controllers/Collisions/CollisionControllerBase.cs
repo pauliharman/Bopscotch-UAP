@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
 using Leda.Core.Shapes;
 using Leda.Core.Game_Objects.Behaviours;
 

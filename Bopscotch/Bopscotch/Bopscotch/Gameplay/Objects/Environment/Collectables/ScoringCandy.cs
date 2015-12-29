@@ -2,8 +2,6 @@
 using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
 using Leda.Core.Serialization;
 
 namespace Bopscotch.Gameplay.Objects.Environment.Collectables

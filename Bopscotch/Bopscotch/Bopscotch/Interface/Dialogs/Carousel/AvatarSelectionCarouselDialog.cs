@@ -2,10 +2,8 @@
 
 using Leda.Core;
 using Leda.Core.Gamestate_Management;
-using Leda.Core.Asset_Management;
 
 using Bopscotch.Data.Avatar;
-using Bopscotch.Input;
 
 namespace Bopscotch.Interface.Dialogs.Carousel
 {

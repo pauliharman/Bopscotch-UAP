@@ -4,8 +4,6 @@ using System.Xml.Linq;
 using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
 using Leda.Core.Shapes;
 
 namespace Leda.Core.Asset_Management

@@ -1,7 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 
-using Bopscotch.Gameplay.Objects.Characters.Player;
-
 namespace Bopscotch.Data
 {
     public abstract class RacePlayerCommunicationData

@@ -1,12 +1,8 @@
 ﻿using System;
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core;
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
-using Leda.Core.Game_Objects.Controllers;
 
 using Bopscotch.Input;
 

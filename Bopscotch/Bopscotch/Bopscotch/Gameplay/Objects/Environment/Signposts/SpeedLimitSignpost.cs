@@ -1,7 +1,5 @@
 ﻿using System.Xml.Linq;
 
-using Microsoft.Xna.Framework.Graphics;
-
 using Leda.Core;
 using Leda.Core.Animation;
 using Leda.Core.Serialization;

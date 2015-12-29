@@ -1,9 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
 
-using Bopscotch.Interface.Dialogs;
-using Bopscotch.Interface.Dialogs.Carousel;
-using Bopscotch.Input;
-
 namespace Bopscotch.Interface.Dialogs.RaceJoinScene
 {
     public class PlayerTwoStartDialog : ButtonDialog

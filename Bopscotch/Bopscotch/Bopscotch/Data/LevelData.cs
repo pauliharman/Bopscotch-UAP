@@ -1,6 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-
-namespace Bopscotch.Data
+﻿namespace Bopscotch.Data
 {
     public class LevelData
     {

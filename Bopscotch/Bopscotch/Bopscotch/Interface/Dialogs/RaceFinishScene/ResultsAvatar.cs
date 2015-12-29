@@ -1,11 +1,6 @@
-﻿using System.Xml.Linq;
-
+﻿
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-
-using Leda.Core.Game_Objects.Base_Classes;
-using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core.Animation;
 using Leda.Core.Asset_Management;
 
 namespace Bopscotch.Interface.Dialogs.RaceFinishScene

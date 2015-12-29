@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Xml.Linq;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
-using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core.Serialization;
 
 namespace Leda.Core.Motion.Engines
 {

@@ -4,16 +4,13 @@ using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 
 using Leda.Core.Game_Objects.Behaviours;
-using Leda.Core.Asset_Management;
 using Leda.Core.Game_Objects.Controllers;
-using Leda.Core.Animation;
 
 using Bopscotch.Scenes.BaseClasses;
 using Bopscotch.Data;
 using Bopscotch.Data.Avatar;
 using Bopscotch.Interface.Objects.EditCharacter;
 using Bopscotch.Interface.Dialogs;
-using Bopscotch.Interface.Dialogs.Carousel;
 using Bopscotch.Interface.Dialogs.EditCharacter;
 
 namespace Bopscotch.Scenes.NonGame

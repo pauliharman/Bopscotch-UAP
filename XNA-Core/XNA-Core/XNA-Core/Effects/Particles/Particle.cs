@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
-
-using Leda.Core;
 using Leda.Core.Game_Objects.Base_Classes;
 
 namespace Leda.Core.Effects.Particles
