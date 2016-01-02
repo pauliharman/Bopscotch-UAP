@@ -38,11 +38,14 @@ namespace Bopscotch.Data
 
         public static void Load() { string temp = Instance.ID; }
         public static void Save() { Instance.SaveData(); }
+        public static void HandlePlayerDeath() { if (!PlayingRaceMode) { Instance.HandleLifeLoss(); } }
+        public static void SyncPlayerLives() { Instance.RestoreLives(); }
         public static void UnlockCurrentAreaContent() { Instance.UnlockLockedContentForCurrentArea(); }
         public static string AreaSelectionTexture(string areaName) { return Instance._areaLevelData[areaName].SelectionTexture; }
         public static bool AvatarComponentUnlocked(string set, string component) { return Instance.CheckForAvatarComponentUnlock(set, component); }
         public static bool AvatarCostumeUnlocked(string name) { return Instance.CheckForAvatarCostumeUnlock(name); }
         public static void ResetAreas() { Instance.ResetAllAreas(); }
+        public static AreaDataContainer GetDataForNamedArea(string areaName) { return Instance._areaLevelData[areaName]; }
 
         public static bool AreaHasBeenCompleted(string areaName) { return Instance._areaLevelData[areaName].Completed; }
         public static bool AreaIsLocked(string areaName) 
@@ -386,6 +389,17 @@ namespace Bopscotch.Data
             SaveData();
         }
 
+        private void HandleLifeLoss()
+        {
+            if (_currentArea != "Tutorial")
+            {
+            }
+        }
+
+        private void RestoreLives()
+        {
+        }
+
         public enum LockState
         {
             Locked,
@@ -398,6 +412,13 @@ namespace Bopscotch.Data
         private const string Profile_FileName = "profile.xml";
         private const string Default_Areas_FileName = "Content/Files/Levels/DefaultAreas.xml";
         private const string Additional_Areas_FileName = "Content/Files/Levels/AdditionalAreas.xml";
-        private const string Difficulty_Sequence_CSV = "n/a,easy,simple,medium,hard,insane";
+        private const string Difficulty_Sequence_CSV = "n/a,easy,simple,moderate,medium,hard,insane";
+        private const int Days_Before_Reminders_Start = 3;
+        private const int Days_Between_Reminders = 2;
+        private const int Maximum_Life_Count = 10;
+        private const int Life_Restore_Interval = 300;
+
+        public const int Race_Win_Lives_Max = 30;
+        public const int Race_Win_Lives_Reward = 3;
     }
 }

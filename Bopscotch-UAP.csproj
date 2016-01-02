@@ -423,6 +423,7 @@
     <Content Include="Content\Files\Levels\Hilltops\Survival\7.xml" />
     <Content Include="Content\Files\Levels\Hilltops\Survival\8.xml" />
     <Content Include="Content\Files\Levels\Hilltops\Survival\9.xml" />
+    <Content Include="Content\Files\Levels\Lava Cave\Survival\0.xml" />
     <Content Include="Content\Files\Levels\Metropolis\RaceStage.xml" />
     <Content Include="Content\Files\Levels\Metropolis\Survival\0.xml" />
     <Content Include="Content\Files\Levels\Metropolis\Survival\1.xml" />

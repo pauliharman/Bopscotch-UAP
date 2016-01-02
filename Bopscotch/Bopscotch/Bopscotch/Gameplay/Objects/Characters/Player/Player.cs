@@ -17,6 +17,7 @@ using Bopscotch.Gameplay.Objects.Environment.Signposts;
 using Bopscotch.Gameplay.Objects.Environment.Flags;
 using Bopscotch.Gameplay.Objects.Display.Survival;
 using Bopscotch.Gameplay.Objects.Display.Race;
+using Bopscotch.Gameplay.Objects.Environment;
 
 namespace Bopscotch.Gameplay.Objects.Characters.Player
 {
@@ -56,8 +57,8 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
         private OneToManyCollisionController _collisionController;
         public OneToManyCollisionController CollisionController { set { value.ObjectToTest = this; _collisionController = value; } }
         
-        private TileMap _map;
-        public TileMap Map { set { _map = value; SetCurrentMapBounds(); } }
+        private BlockMap _map;
+        public BlockMap Map { set { _map = value; SetCurrentMapBounds(); } }
         public float DistanceToGround
         {
             get
@@ -233,6 +234,11 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
             SoundEffectManager.PlayEffect("ice-crunch");
         }
 
+        private void HandleBombBlockImpact(BombBlock bomb)
+        {
+            bomb.TriggerByImpact();
+        }
+
         private void CheckAndHandleBadLandingLastUpdate()
         {
             if ((_hasLandedOnBlock) && (_didNotLandSafely)) { StartDeathSequence(); }
@@ -244,6 +250,8 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
             IsDead = true;
             LifeCycleState = Leda.Core.LifeCycleStateValue.Exiting;
             SoundEffectManager.PlayEffect("player-death");
+
+            Data.Profile.HandlePlayerDeath();
         }
 
         private void DisableAllMovement()
@@ -310,8 +318,9 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
         public override void HandleCollision(ICollidable collider)
         {
             if (collider is Block) { HandleBlockCollision((Block)collider); }
-            if (collider is SignpostBase) { HandleSignpostCollision((SignpostBase)collider); }
-            if (collider is Flag) { HandleFlagCollision((Flag)collider); }
+            else if (collider is SignpostBase) { HandleSignpostCollision((SignpostBase)collider); }
+            else if (collider is Flag) { HandleFlagCollision((Flag)collider); }
+            else if (collider is BombBlockBlastCollider) { StartDeathSequence(); }
         }
 
         private void HandleBlockCollision(Block collidingBlock)
@@ -338,6 +347,7 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
             if ((_motionEngine.VerticalMovementCanSmash) || (_isSmashingSmashBlocks))
             {
                 collidingSmashBlock.HandleSmash();
+                _map.RecordBlockHasBeenSmashed(collidingSmashBlock);
                 _motionEngine.PreventNextJump();
                 _isSmashingSmashBlocks = true;
             }
@@ -361,12 +371,22 @@ namespace Bopscotch.Gameplay.Objects.Characters.Player
                 if (_motionEngine.Delta.Y > 0)
                 {
                     WorldPosition -= new Vector2(0.0f, WorldPosition.Y - (collidingBlock.TopSurfaceY - Body_Collision_Radius));
+                    bool specialBlock = false;
 
                     SpringBlock launcher = collidingBlock as SpringBlock;
-                    if (launcher != null) { HandleSpringBlockLaunch(launcher); }
+                    if (launcher != null) { HandleSpringBlockLaunch(launcher); specialBlock = true; }
 
-                    IceBlock ice = collidingBlock as IceBlock;
-                    if (ice != null) { HandleIceBlockImpact(); }
+                    if (!specialBlock)
+                    {
+                        IceBlock ice = collidingBlock as IceBlock;
+                        if (ice != null) { HandleIceBlockImpact(); specialBlock = true; }
+                    }
+
+                    if (!specialBlock)
+                    {
+                        BombBlock bomb = collidingBlock as BombBlock;
+                        if (bomb != null) { HandleBombBlockImpact(bomb); }
+                    }
                 }
             }
             else if ((CornerHasBeenClipped(collidingBlock.LeftSurfaceX, collidingBlock.TopSurfaceY)) ||

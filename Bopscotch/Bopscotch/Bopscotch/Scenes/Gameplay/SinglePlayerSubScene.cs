@@ -144,7 +144,8 @@ namespace Bopscotch.Scenes.Gameplay
         {
             _levelFactory.AnimationController = _animationController;
             _levelFactory.SmashBlockCallback = HandleSmashBlockSmash;
-//            _levelFactory.SmashBlockRegenrationCallback = _additiveParticleEffectManager.LaunchCloudBurst;
+            _levelFactory.SmashBlockRegenerationCallback = _additiveParticleEffectManager.LaunchCloudBurst;
+            _levelFactory.BombBlockDetonationCallback = _additiveParticleEffectManager.LaunchFireball;
             _levelFactory.LoadAndInitializeLevel();
 
             if (Data.Profile.PlayingRaceMode) { ((Data.RaceLevelData)_levelData).LapsToComplete = _levelFactory.RaceLapCount; }
