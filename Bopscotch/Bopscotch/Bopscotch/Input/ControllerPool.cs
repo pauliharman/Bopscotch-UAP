@@ -67,6 +67,7 @@ namespace Bopscotch.Input
                 case PlayerController.GamepadTwo: return new GamePadInputProcessor(PlayerIndex.Two); break;
                 case PlayerController.GamepadThree: return new GamePadInputProcessor(PlayerIndex.Three); break;
                 case PlayerController.GamepadFour: return new GamePadInputProcessor(PlayerIndex.Four); break;
+                case PlayerController.Touch: return new DragTapControls(); break;
             }
 
             return null;
@@ -117,7 +118,8 @@ namespace Bopscotch.Input
             GamepadOne,
             GamepadTwo,
             GamepadThree,
-            GamepadFour
+            GamepadFour,
+            Touch
         }
     }
 }

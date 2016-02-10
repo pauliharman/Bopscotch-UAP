@@ -264,6 +264,23 @@ namespace Bopscotch.Scenes.NonGame
             base.HandleBackButtonPress();
         }
 
+        protected override void Render()
+        {
+            base.Render();
+            SpriteBatch.Begin();
+
+            for (int i = 0; i < _inputProcessors.Count; i++)
+            {
+                if (_inputProcessors[i] is DragTapControls)
+                {
+                    Leda.Core.TextWriter.Write((_inputProcessors[i] as DragTapControls).TouchLocation.ToString(), SpriteBatch, Vector2.Zero,
+                    Color.Black, 1f, Leda.Core.TextWriter.Alignment.Left);
+                }
+            }
+            //Leda.Core.TextWriter.Write("Hello World", SpriteBatch, Vector2.Zero, Color.Black, 0.9f, Leda.Core.TextWriter.Alignment.Left);
+            SpriteBatch.End();
+        }
+
         private const string Background_Texture_Name = "background-1";
         private const string Title_Texture_Name = "popup-title";
         private const string Default_First_Dialog = "main";

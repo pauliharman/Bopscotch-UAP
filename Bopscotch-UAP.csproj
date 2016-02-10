@@ -188,10 +188,12 @@
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\SignpostFactory.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Gameplay\Objects\Environment\Signposts\SpeedLimitSignpost.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\ControllerPool.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\DragTapControls.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\GamePadInputProcessor.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\InGameButtonArea.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\InputProcessorBase.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\KeyboardInputProcessor.cs" />
+    <Compile Include="Bopscotch\Bopscotch\Bopscotch\Input\TouchControls.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\Button.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\ButtonDialog.cs" />
     <Compile Include="Bopscotch\Bopscotch\Bopscotch\Interface\ComponentSetDisplayAvatar.cs" />

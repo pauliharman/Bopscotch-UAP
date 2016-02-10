@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Leda.Core.Timing;
 using Leda.Core.Gamestate_Management;
 using Leda.Core.Asset_Management;
+using Leda.Core.Input;
 
 #if WINDOWS_PHONE
 using Microsoft.Phone.Shell;
@@ -137,8 +138,8 @@ namespace Leda.Core
                 _resolutionOffset = new Vector2(((float)physicalScreenWidth - (optimumBackBufferWidth * _resolutionScaling)) / 2.0f, 0.0f);
             }
 
-            //TouchProcessor.ResolutionScaling = _resolutionScaling;
-            //TouchProcessor.ResolutionOffset = _resolutionOffset;
+            TouchProcessor.ResolutionScaling = _resolutionScaling;
+            TouchProcessor.ResolutionOffset = _resolutionOffset;
 
             _safeDisplayArea = new Rectangle(
                 (int)Math.Max(-(_resolutionOffset.X / _resolutionScaling), 0),
