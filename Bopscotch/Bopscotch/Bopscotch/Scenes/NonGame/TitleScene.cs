@@ -269,15 +269,6 @@ namespace Bopscotch.Scenes.NonGame
             base.Render();
             SpriteBatch.Begin();
 
-            for (int i = 0; i < _inputProcessors.Count; i++)
-            {
-                if (_inputProcessors[i] is DragTapControls)
-                {
-                    Leda.Core.TextWriter.Write((_inputProcessors[i] as DragTapControls).TouchLocation.ToString(), SpriteBatch, Vector2.Zero,
-                    Color.Black, 1f, Leda.Core.TextWriter.Alignment.Left);
-                }
-            }
-            //Leda.Core.TextWriter.Write("Hello World", SpriteBatch, Vector2.Zero, Color.Black, 0.9f, Leda.Core.TextWriter.Alignment.Left);
             SpriteBatch.End();
         }
 
